@@ -1,10 +1,14 @@
 import React from "react";
 import { Button } from "antd";
+import HomePage from "./page/home/HomePage";
+import HocPage from "./page/hoc/HocPage";
 
 function App() {
   return (
     <div className="App">
-      <Button type="primary">submit</Button>
+      <HomePage></HomePage>
+      {/* <Button type="primary">submit</Button> */}
+      <HocPage></HocPage>
     </div>
   );
 }
