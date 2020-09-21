@@ -1,44 +1,38 @@
 import React, { Component } from "react";
 import { Form, Input, Button } from "antd";
 
-export default class FormPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      password: "",
-    };
-  }
+const nameRules = { required: true, message: "need name" };
+const passwordRules = { required: true, message: "need password" };
+
+@Form.create({})
+class FormPage extends Component {
   submit = () => {
-    console.log("submit behavior", this.state);
+    const { getFieldsValue, validateFields } = this.props.form;
+    validateFields((err, values) => {
+      if (err) {
+        console.log("err", err);
+      } else {
+        console.log("success", values);
+      }
+    });
+    console.log("submit behavior", getFieldsValue());
   };
   render() {
-    const { name, password } = this.state;
+    console.log(this.props);
+    const { getFieldDecorator } = this.props.form;
     return (
       <div>
         <h3>formPage</h3>
         <Form>
           <Form.Item>
-            <Input
-              placeholder="Basic usage"
-              value={name}
-              onChange={(e) =>
-                this.setState({
-                  name: e.target.value,
-                })
-              }
-            ></Input>
+            {getFieldDecorator("name", { rules: [nameRules] })(
+              <Input placeholder="Basic usage"></Input>
+            )}
           </Form.Item>
           <Form.Item>
-            <Input
-              placeholder="Basic password"
-              value={password}
-              onChange={(e) =>
-                this.setState({
-                  password: e.target.value,
-                })
-              }
-            ></Input>
+            {getFieldDecorator("password", { rules: [passwordRules] })(
+              <Input placeholder="Basic password"></Input>
+            )}
           </Form.Item>
           <Button type="primary" onClick={this.submit}>
             提交
@@ -48,3 +42,5 @@ export default class FormPage extends Component {
     );
   }
 }
+
+export default FormPage;
