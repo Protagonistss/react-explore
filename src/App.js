@@ -6,7 +6,8 @@ import React from "react";
 // import FormPage from "./page/form/FormPage";
 
 // import CusFormPage from "./page/cus-form/CusForm";
-import ContextPage from "./page/context/ContextPage";
+// import ContextPage from "./page/context/ContextPage";
+import ReduxPage from "./page/redux-case/ReduxPage";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       {/* <FormPage></FormPage> */}
       {/* <CusFormPage></CusFormPage> */}
       {/* <CusDialogpage></CusDialogpage> */}
-      <ContextPage></ContextPage>
+      {/* <ContextPage></ContextPage> */}
+      <ReduxPage></ReduxPage>
     </div>
   );
 }
