@@ -6,7 +6,7 @@ import React from "react";
 // import FormPage from "./page/form/FormPage";
 
 // import CusFormPage from "./page/cus-form/CusForm";
-import ContextPage from "./page/context/Contextpage";
+import ContextPage from "./page/context/ContextPage";
 
 function App() {
   return (
