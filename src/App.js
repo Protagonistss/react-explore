@@ -5,7 +5,8 @@ import React from "react";
 // import HocPage from "./page/hoc/HocPage";
 // import FormPage from "./page/form/FormPage";
 
-import CusFormPage from "./page/cus-form/CusForm";
+// import CusFormPage from "./page/cus-form/CusForm";
+import ContextPage from "./page/context/Contextpage";
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
       {/* <Button type="primary">submit</Button> */}
       {/* <HocPage></HocPage> */}
       {/* <FormPage></FormPage> */}
-      <CusFormPage></CusFormPage>
+      {/* <CusFormPage></CusFormPage> */}
       {/* <CusDialogpage></CusDialogpage> */}
+      <ContextPage></ContextPage>
     </div>
   );
 }
