@@ -10,9 +10,11 @@ export default function FormCreate(Cmp) {
 
     handleChange = (e) => {
       let { value, name } = e.target;
-      this.setState({ [name]: value }, () => {
-        this.validate();
-      });
+      // this.setState({ [name]: value }, () => {
+      //   this.validate();
+      // });
+
+      this.validate({ ...this.state, [name]: value });
     };
 
     getFieldsValue = () => {
@@ -37,20 +39,20 @@ export default function FormCreate(Cmp) {
       );
     };
 
-    validate = () => {
+    validate = (state) => {
       const errors = {};
       for (let name in this.options) {
-        if (this.state[name] === undefined) {
+        if (state[name] === undefined) {
           errors[name] = this.options[name].rules[0].message;
         }
       }
-      this.setState({ errors });
+      this.setState({ ...state, errors });
     };
 
     validateField = (fn) => {
       // need validate value and collection
-      this.validate();
       const state = { ...this.state };
+      this.validate(state);
       const { errors } = this.state;
       if (JSON.stringify(errors)) {
         fn(errors, state);
