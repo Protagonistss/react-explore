@@ -10,6 +10,14 @@ export default class ReduxPage extends Component {
     store.dispatch({ type: "MINUS" });
   };
 
+  async = () => {
+    store.dispatch((dispatch) => {
+      setTimeout(() => {
+        dispatch({ type: "ADD" });
+      }, 1000);
+    });
+  };
+
   componentDidMount() {
     store.subscribe(() => {
       this.forceUpdate();
@@ -23,6 +31,7 @@ export default class ReduxPage extends Component {
         <p>{store.getState()}</p>
         <button onClick={this.add}>add</button>
         <button onClick={this.minus}>minus</button>
+        <button onClick={this.async}>async</button>
       </div>
     );
   }
