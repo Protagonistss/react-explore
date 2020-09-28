@@ -7,7 +7,8 @@ import React from "react";
 
 // import CusFormPage from "./page/cus-form/CusForm";
 // import ContextPage from "./page/context/ContextPage";
-import ReduxPage from "./page/redux-case/ReduxPage";
+// import ReduxPage from "./page/redux-case/ReduxPage";
+import Calculate from "./page/redux-case/calculate/calculate";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       {/* <CusFormPage></CusFormPage> */}
       {/* <CusDialogpage></CusDialogpage> */}
       {/* <ContextPage></ContextPage> */}
-      <ReduxPage></ReduxPage>
+      {/* <ReduxPage></ReduxPage> */}
+      <Calculate></Calculate>
     </div>
   );
 }
