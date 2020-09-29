@@ -8,7 +8,7 @@ import React, { useState } from "react";
 // import CusFormPage from "./page/cus-form/CusForm";
 // import ContextPage from "./page/context/ContextPage";
 // import ReduxPage from "./page/redux-case/ReduxPage";
-import Calculate from "./page/redux-case/calculate/calculate";
+// import Calculate from "./page/redux-case/calculate/calculate";
 import ReactReduxPage from "./page/react-redux/ReactReduxPage";
 
 function App() {
