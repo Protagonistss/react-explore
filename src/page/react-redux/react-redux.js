@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import { bindActionCreators } from "redux";
 
 const ValueContext = React.createContext();
 const ValueProvider = ValueContext.Provider;
@@ -29,7 +30,9 @@ export const connect = (
       let dispatchProps;
       // mapDispatchToProps plain or function
       if (typeof mapDispatchToProps === "object") {
+        dispatchProps = bindActionCreators(mapDispatchToProps, dispatch);
       } else if (typeof mapDispatchToProps === "function") {
+        dispatchProps = mapDispatchToProps(dispatch);
       } else {
         dispatchProps = { dispatch };
       }
@@ -56,4 +59,21 @@ export class Provider extends Component {
       </ValueProvider>
     );
   }
+}
+
+function bindActionCreator(creator, dispatch) {
+  return (...args) => dispatch(creator(...args));
+}
+
+/**
+ *
+ * @param {*} creators {add:()=>({type:"ADD"})
+ * @param {*} dispatch function
+ */
+function bindActionCreators(creators, dispatch) {
+  const obj = {};
+  for (const key in creators) {
+    obj[key] = bindActionCreator(creators[key], dispatch);
+  }
+  return obj;
 }

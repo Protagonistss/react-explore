@@ -11,25 +11,20 @@ export default connect(
     return {
       count: state,
     };
-  }
+  },
   // mapDispathToProps object/function
-  //   {
-  //     add: () => ({
-  //       type: "ADD",
-  //     }),
-  //   }
-
+  // plain
   // {
   //   add: () => ({ type: "ADD" }),
-  // },
+  // }
 
-  // (dispatch) => {
-  //   let res = {
-  //     add: () => ({ type: "ADD" }),
-  //   };
-  //   res = bindActionCreators(res, dispatch);
-  //   return { dispatch, ...res };
-  // },
+  (dispatch) => {
+    let res = {
+      add: () => ({ type: "ADD" }),
+    };
+    res = bindActionCreators(res, dispatch);
+    return { dispatch, ...res };
+  }
   // mergeProps
   // (stateProps, dispatchProps, ownProps) => {
   //   return {
@@ -49,7 +44,7 @@ export default connect(
           <h3>reactreduxPage</h3>
           <p>1111-{count}</p>
           <button onClick={() => dispatch({ type: "ADD" })}>add</button>
-          <button onClick={add}>mapDispathch</button>
+          <button onClick={add}>mapDispath-plain</button>
         </div>
       );
     }
