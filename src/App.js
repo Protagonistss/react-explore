@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import ChildrenPage from "./page/router/ChildrenPage";
 // import CusDialogpage from "./page/cus-dialog/CusDialogPage";
 // import { Button } from "antd";
 // import HomePage from "./page/home/HomePage";
@@ -9,7 +10,8 @@ import React, { useState } from "react";
 // import ContextPage from "./page/context/ContextPage";
 // import ReduxPage from "./page/redux-case/ReduxPage";
 // import Calculate from "./page/redux-case/calculate/calculate";
-import ReactReduxPage from "./page/react-redux/ReactReduxPage";
+// import ReactReduxPage from "./page/react-redux/ReactReduxPage";
+import RouterPage from "./page/router/RouterPage";
 
 function App() {
   const [msg, setMsg] = useState("aaa");
@@ -24,8 +26,10 @@ function App() {
       {/* <ContextPage></ContextPage> */}
       {/* <ReduxPage></ReduxPage> */}
       {/* <Calculate></Calculate> */}
-      <ReactReduxPage msg={msg}></ReactReduxPage>
-      <button onClick={() => setMsg("hello world")}>change msg</button>
+      {/* <ReactReduxPage msg={msg}></ReactReduxPage> */}
+      {/* <button onClick={() => setMsg("hello world")}>change msg</button> */}
+      <RouterPage></RouterPage>
+      {/* <ChildrenPage></ChildrenPage> */}
     </div>
   );
 }
