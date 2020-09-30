@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Redirect, Route } from "react-router-dom";
+// import { Redirect, Route } from "react-router-dom";
+import Route from "./router/Route";
+import Redirect from "./router/Redirect";
 import { connect } from "react-redux";
 
 export default connect(({ user }) => ({ isLogin: user.isLogin }))(

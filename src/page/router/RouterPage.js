@@ -21,22 +21,22 @@ export default class RouterPage extends Component {
           <Link to="/children">children </Link>
           <Link to="/render">render </Link>
           <Link to="/search/123">search </Link>
-          {/* <Link to="/login">login </Link>
-          <Link to="/search/123">搜索</Link> */}
+          <Link to="/login">login </Link>
+          {/* <Link to="/search/123">搜索</Link> */}
           {/* <Route exact path="/" component={MainPage}></Route>
           <Route path="/user" component={UserPage}></Route>
           <Route path="/login" component={LoginPage}></Route> */}
-          <Switch location={{ pathname: "/user" }}>
+          <Switch>
             <Route exact path="/" component={MainPage}></Route>
-            <Route path="/user" component={UserPage}></Route>
+            {/* <Route path="/user" component={UserPage}></Route> */}
+            <AccidentRoute path="/user" component={UserPage}></AccidentRoute>
             <Route
               path="/children"
               children={() => <div>children</div>}
             ></Route>
             <Route path="/render" render={() => <div>render</div>}></Route>
             <Route path="/search/:id" component={SearchComponent}></Route>
-            {/* <AccidentRoute path="/user" component={UserPage}></AccidentRoute> */}
-            {/* <Route path="/login" component={LoginPage}></Route> */}
+            <Route path="/login" component={LoginPage}></Route>
             {/* <Route path="/search/:id" component={SearchComponent}></Route> */}
             {/* <Route render={() => <div>404</div>}></Route> */}
             <Route render={() => <div>404</div>}></Route>

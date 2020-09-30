@@ -7,7 +7,7 @@ export default class Switch extends Component {
     return (
       <RouterContext.Consumer>
         {(ctx) => {
-          const location = this.props.location || ctx;
+          const location = this.props.location || ctx.location;
           let needRenderNode,
             match = null;
           const { children } = this.props;
