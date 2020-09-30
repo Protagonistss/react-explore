@@ -4,6 +4,14 @@ import { RouterContext, RouterProvider } from "./RouterContext";
 
 export default class BrowserRouter extends Component {
   static contextType = RouterContext;
+  static computeRootMatch(pathname) {
+    return {
+      path: "/",
+      url: "/",
+      params: {},
+      isExact: pathname === "/",
+    };
+  }
   constructor(props) {
     super(props);
     this.history = createBrowserHistory();
@@ -25,7 +33,11 @@ export default class BrowserRouter extends Component {
     return (
       <RouterProvider
         children={this.props.children}
-        value={{ history: this.history, location: this.state.location }}
+        value={{
+          history: this.history,
+          location: this.state.location,
+          match: BrowserRouter.computeRootMatch(this.state.location.pathname),
+        }}
       ></RouterProvider>
     );
   }

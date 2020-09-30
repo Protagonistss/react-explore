@@ -7,9 +7,19 @@ export default class Route extends Component {
     return (
       <RouterContext.Consumer>
         {(ctx) => {
-          const { path, children, component, render } = this.props;
+          const {
+            path,
+            children,
+            component,
+            render,
+            computedMatch,
+          } = this.props;
           const location = this.props.location || ctx.location;
-          const match = matchPath(location.pathname, this.props);
+          const match = computedMatch
+            ? computedMatch
+            : path
+            ? matchPath(location.pathname, this.props)
+            : ctx.match;
           const props = {
             ...ctx,
             location,

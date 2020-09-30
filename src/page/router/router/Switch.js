@@ -21,8 +21,12 @@ export default class Switch extends Component {
                 : ctx.match;
             }
           });
+          console.log(ctx);
           return match
-            ? React.cloneElement(needRenderNode, { location })
+            ? React.cloneElement(needRenderNode, {
+                location,
+                computedMatch: match,
+              })
             : null;
         }}
       </RouterContext.Consumer>
