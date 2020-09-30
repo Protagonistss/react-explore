@@ -16,19 +16,23 @@ export default class Route extends Component {
             match,
           };
           // matched need deal children component render
-          return match
-            ? children
-              ? typeof children === "function"
+          return (
+            <RouterContext.Provider value={props}>
+              {match
+                ? children
+                  ? typeof children === "function"
+                    ? children(props)
+                    : children
+                  : component
+                  ? React.createElement(component, props)
+                  : render
+                  ? render()
+                  : null
+                : typeof children === "function"
                 ? children(props)
-                : children
-              : component
-              ? React.createElement(component, props)
-              : render
-              ? render()
-              : null
-            : typeof children === "function"
-            ? children(props)
-            : null;
+                : null}
+            </RouterContext.Provider>
+          );
         }}
       </RouterContext.Consumer>
     );

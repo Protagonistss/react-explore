@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Router from "./router/BrowserRouter";
 import Route from "./router/Route";
 import Link from "./router/Link";
+import Switch from "./router/Switch";
 
 import MainPage from "./MainPage";
 import UserPage from "./UserPage";
@@ -25,17 +26,21 @@ export default class RouterPage extends Component {
           {/* <Route exact path="/" component={MainPage}></Route>
           <Route path="/user" component={UserPage}></Route>
           <Route path="/login" component={LoginPage}></Route> */}
-          {/* <Switch> */}
-          <Route exact path="/" component={MainPage}></Route>
-          <Route path="/user" component={UserPage}></Route>
-          <Route path="/chilren" children={() => <div>children</div>}></Route>
-          <Route path="/render" render={() => <div>render</div>}></Route>
-          <Route path="/search/:id" component={SearchComponent}></Route>
-          {/* <AccidentRoute path="/user" component={UserPage}></AccidentRoute> */}
-          {/* <Route path="/login" component={LoginPage}></Route> */}
-          {/* <Route path="/search/:id" component={SearchComponent}></Route> */}
-          {/* <Route render={() => <div>404</div>}></Route> */}
-          {/* </Switch> */}
+          <Switch location={{ pathname: "/user" }}>
+            <Route exact path="/" component={MainPage}></Route>
+            <Route path="/user" component={UserPage}></Route>
+            <Route
+              path="/children"
+              children={() => <div>children</div>}
+            ></Route>
+            <Route path="/render" render={() => <div>render</div>}></Route>
+            <Route path="/search/:id" component={SearchComponent}></Route>
+            {/* <AccidentRoute path="/user" component={UserPage}></AccidentRoute> */}
+            {/* <Route path="/login" component={LoginPage}></Route> */}
+            {/* <Route path="/search/:id" component={SearchComponent}></Route> */}
+            {/* <Route render={() => <div>404</div>}></Route> */}
+            <Route render={() => <div>404</div>}></Route>
+          </Switch>
         </Router>
       </div>
     );
