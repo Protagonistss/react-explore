@@ -12,6 +12,7 @@ import React, { useState } from "react";
 // import Calculate from "./page/redux-case/calculate/calculate";
 // import ReactReduxPage from "./page/react-redux/ReactReduxPage";
 import RouterPage from "./page/router/RouterPage";
+// import EntryPage from "./page/implement-router/EntryPage";
 
 function App() {
   const [msg, setMsg] = useState("aaa");
@@ -30,6 +31,7 @@ function App() {
       {/* <button onClick={() => setMsg("hello world")}>change msg</button> */}
       <RouterPage></RouterPage>
       {/* <ChildrenPage></ChildrenPage> */}
+      {/* <EntryPage></EntryPage> */}
     </div>
   );
 }

@@ -1,0 +1,36 @@
+import React, { Component } from "react";
+import { RouterContext } from "./RouterContext";
+import matchPath from "./matchPath";
+
+export default class Route extends Component {
+  render() {
+    return (
+      <RouterContext.Consumer>
+        {(ctx) => {
+          const { path, children, component, render } = this.props;
+          const location = this.props.location || ctx.location;
+          const match = matchPath(location.pathname, this.props);
+          const props = {
+            ...ctx,
+            location,
+            match,
+          };
+          // matched need deal children component render
+          return match
+            ? children
+              ? typeof children === "function"
+                ? children(props)
+                : children
+              : component
+              ? React.createElement(component, props)
+              : render
+              ? render()
+              : null
+            : typeof children === "function"
+            ? children(props)
+            : null;
+        }}
+      </RouterContext.Consumer>
+    );
+  }
+}
